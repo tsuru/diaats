@@ -30,7 +30,7 @@ What the API does:
 
  - on service-add, it creates a container on the configured Docker host
  - on service-bind, it returns a list of endpoints in the format
-   <host_ip>:<host_port>, for each port exported by the Docker image
+   [host_ip]:[host_port], for each port exported by the Docker image
  - on service-unbind, it doesn't do anything
  - on service-remove, it removes the container from the configured Docker host
 
