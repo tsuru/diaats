@@ -13,10 +13,18 @@ IMAGE_PLANS='[{"image":"elasticsearch","plan":"elasticsearch"},{"image":"memcach
 
 Other relevant environment variables include:
 
- - DOCKER_HOST: the address of the host. It might be a Swarm cluster
+ - DOCKER_HOST: the address of the host. It might be a Swarm cluster. This
+   setting is mandatory.
  - DOCKER_CONFIG: a JSON representing a
    [HostConfig](https://godoc.org/github.com/fsouza/go-dockerclient#HostConfig)
    instance. This environment variable is optional.
+ - API_USERNAME and API_PASSWORD: in case the user wants to enable basic
+   authentication in the API, these environment variables must be defined. They
+   might be omitted, which means no authentication.
+ - MONGODB_URL: the [MongoDB connection
+   string](http://docs.mongodb.org/manual/reference/connection-string/). The
+   API will use MongoDB to store metadata about the instances in the service.
+   This setting is mandatory.
 
 What the API does:
 
