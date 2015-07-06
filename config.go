@@ -7,7 +7,9 @@ package main
 import (
 	"encoding/json"
 	"log"
+	"net/url"
 	"os"
+	"strings"
 
 	"github.com/fsouza/go-dockerclient"
 )
@@ -17,10 +19,14 @@ var config struct {
 	Username   string
 	Password   string
 	HostConfig *docker.HostConfig
-	Plans      []struct {
-		Name  string `json:"plan"`
-		Image string `json:"image"`
-	}
+	Plans      []Plan
+	MongoURL   string
+	DBName     string
+}
+
+type Plan struct {
+	Name  string `json:"plan"`
+	Image string `json:"image"`
 }
 
 func loadConfig() {
@@ -47,5 +53,17 @@ func loadConfig() {
 	err := json.Unmarshal([]byte(imagePlans), &config.Plans)
 	if err != nil {
 		log.Fatalf("Failed to parse IMAGE_PLANS: %s", err)
+	}
+	config.MongoURL = os.Getenv("MONGODB_URL")
+	if config.MongoURL == "" {
+		log.Fatal("MONGODB_URL is required")
+	}
+	config.DBName = os.Getenv("MONGODB_DB_NAME")
+	if config.DBName == "" {
+		url_, err := url.Parse(config.MongoURL)
+		if err != nil {
+			log.Fatalf("Failed to parse MONGODB_URL: %s", err)
+		}
+		config.DBName = strings.TrimLeft(url_.Path, "/")
 	}
 }
