@@ -8,12 +8,6 @@ import (
 	"net/http"
 )
 
-var config struct {
-	DockerHost string
-	Username   string
-	Password   string
-}
-
 func handler(fn http.HandlerFunc) http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if config.Username != "" && config.Password != "" {
@@ -28,4 +22,5 @@ func handler(fn http.HandlerFunc) http.HandlerFunc {
 }
 
 func main() {
+	loadConfig()
 }
