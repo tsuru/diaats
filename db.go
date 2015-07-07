@@ -4,9 +4,7 @@
 
 package main
 
-import (
-	"gopkg.in/mgo.v2"
-)
+import "gopkg.in/mgo.v2"
 
 type collection struct {
 	*mgo.Collection
