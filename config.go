@@ -37,15 +37,15 @@ func loadConfig() {
 	config.Username = os.Getenv("API_USERNAME")
 	config.Password = os.Getenv("API_PASSWORD")
 	hostConfigJSON := os.Getenv("DOCKER_CONFIG")
-	if hostConfigJSON == "" {
-		config.HostConfig = nil
-	} else {
+	config.HostConfig = new(docker.HostConfig)
+	if hostConfigJSON != "" {
 		config.HostConfig = new(docker.HostConfig)
 		err := json.Unmarshal([]byte(hostConfigJSON), config.HostConfig)
 		if err != nil {
 			log.Fatalf("Failed to parse HOST_CONFIG: %s", err)
 		}
 	}
+	config.HostConfig.PublishAllPorts = true
 	imagePlans := os.Getenv("IMAGE_PLANS")
 	if imagePlans == "" {
 		log.Fatal("IMAGE_PLANS is required")
