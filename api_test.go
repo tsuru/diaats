@@ -9,6 +9,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	dtesting "github.com/fsouza/go-dockerclient/testing"
 	"gopkg.in/check.v1"
 )
 
@@ -18,7 +19,22 @@ func Test(t *testing.T) {
 
 var _ = check.Suite(&S{})
 
-type S struct{}
+type S struct {
+	server *dtesting.DockerServer
+}
+
+func (s *S) SetUpTest(c *check.C) {
+	var err error
+	config.MongoURL = "mongodb://127.0.0.1:27017/diaats"
+	config.DBName = "diaats"
+	s.server, err = dtesting.NewServer("127.0.0.1:0", nil, nil)
+	c.Assert(err, check.IsNil)
+	config.DockerHost = s.server.URL()
+}
+
+func (s *S) TearDownTest(c *check.C) {
+	s.server.Stop()
+}
 
 func (*S) TestHandlerSuccess(c *check.C) {
 	var called bool
