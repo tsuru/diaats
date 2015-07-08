@@ -55,3 +55,21 @@ func (*S) TestLoadConfigNoDockerConfigNoDBName(c *check.C) {
 	c.Assert(config.MongoURL, check.Equals, "mongodb://user:password@host:27017/diaatss")
 	c.Assert(config.DBName, check.Equals, "diaatss")
 }
+
+func (*S) TestGetPlan(c *check.C) {
+	os.Setenv("DOCKER_HOST", "tcp://192.168.50.4:2375")
+	os.Setenv("API_USERNAME", "root")
+	os.Setenv("API_PASSWORD", "r00t")
+	os.Setenv("IMAGE_PLANS", `[{"image":"memcached:1","plan":"memcached_1"},{"image":"memcached:1.3","plan":"memcached_1_3"}]`)
+	os.Setenv("MONGODB_URL", "mongodb://user:password@host:27017/diaatss")
+	os.Unsetenv("MONGODB_DB_NAME")
+	os.Unsetenv("DOCKER_CONFIG")
+	loadConfig()
+	plan, err := getPlan("memcached_1")
+	c.Assert(err, check.IsNil)
+	c.Assert(plan, check.DeepEquals, &config.Plans[0])
+	plan, err = getPlan("memcached_3")
+	c.Assert(err, check.NotNil)
+	c.Assert(err.Error(), check.Equals, "plan not found")
+	c.Assert(plan, check.IsNil)
+}

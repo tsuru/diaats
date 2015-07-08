@@ -6,6 +6,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"log"
 	"net/url"
 	"os"
@@ -66,4 +67,13 @@ func loadConfig() {
 		}
 		config.DBName = strings.TrimLeft(url_.Path, "/")
 	}
+}
+
+func getPlan(name string) (*Plan, error) {
+	for _, plan := range config.Plans {
+		if plan.Name == name {
+			return &plan, nil
+		}
+	}
+	return nil, errors.New("plan not found")
 }
