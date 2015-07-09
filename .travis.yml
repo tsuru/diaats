@@ -1,0 +1,16 @@
+language: go
+os:
+  - linux
+  - osx
+go:
+  - 1.4
+  - tip
+env:
+  - GOARCH=386
+  - GOARCH=amd64
+install:
+  - go get -d -t -u -f
+script:
+  - go test
+services:
+  - mongodb

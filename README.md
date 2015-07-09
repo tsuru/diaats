@@ -1,5 +1,8 @@
 #diaats
 
+[![Drone](https://drone.io/github.com/fsouza/diaats/status.png)](https://drone.io/github.com/fsouza/diaats/latest)
+[![Travis](https://img.shields.io/travis/fsouza/diaats.svg?style=flat-square)](https://travis-ci.org/fsouza/diaats)
+
 Docker-image-as-a-tsuru-service is a tool for generating a [tsuru service
 API](http://docs.tsuru.io/en/stable/services/api.html) based on a Docker image.
 
