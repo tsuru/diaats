@@ -8,7 +8,7 @@ env:
 before_install:
   - sed -ie 's;git://;https://;' .git/config
 install:
-  - go get -d -t -u -f
+  - go get -d -t -f
 script:
   - go test
 services:
