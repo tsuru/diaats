@@ -115,7 +115,3 @@ func buildMuxer() http.Handler {
 	m.Post("/resources", handler(createInstance))
 	return m
 }
-
-func main() {
-	loadConfig()
-}
