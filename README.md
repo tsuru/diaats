@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/fsouza/diaats.svg?branch=master)](https://travis-ci.org/fsouza/diaats)
 
 Docker-image-as-a-tsuru-service is a tool for generating a [tsuru service
-API](http://docs.tsuru.io/en/stable/services/api.html) based on a Docker image.
+API](http://docs.tsuru.io/en/stable/services/api.html) based on Docker images.
 
 Each registered Docker image is a plan, and they're defined in the IMAGE_PLANS
 environment variable. The value of this variable must be a valid JSON. For
