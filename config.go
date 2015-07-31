@@ -30,6 +30,13 @@ type Plan struct {
 	Image string `json:"image"`
 }
 
+func (p *Plan) ToMap() map[string]string {
+	return map[string]string{
+		"name":        p.Name,
+		"description": "Run containers of the image " + p.Image,
+	}
+}
+
 func loadConfig() {
 	config.DockerHost = os.Getenv("DOCKER_HOST")
 	if config.DockerHost == "" {

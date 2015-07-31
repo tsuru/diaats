@@ -104,6 +104,18 @@ func instanceStatus(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNoContent)
 }
 
+func listPlans(w http.ResponseWriter, r *http.Request) {
+	result := make([]map[string]string, len(config.Plans))
+	for i, plan := range config.Plans {
+		result[i] = plan.ToMap()
+	}
+	w.Header().Set("Content-Type", "application/json")
+	err := json.NewEncoder(w).Encode(result)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
 func buildMuxer() http.Handler {
 	m := pat.New()
 	m.Post("/resources/{name}/bind-app", handler(bindApp))
@@ -112,6 +124,7 @@ func buildMuxer() http.Handler {
 	m.Delete("/resources/{name}/bind", handler(func(http.ResponseWriter, *http.Request) {}))
 	m.Get("/resources/{name}/status", handler(instanceStatus))
 	m.Delete("/resources/{name}", handler(removeInstance))
+	m.Get("/resources/plans", handler(listPlans))
 	m.Post("/resources", handler(createInstance))
 	return m
 }

@@ -265,3 +265,26 @@ func (*S) TestInstanceStatusHandlerNotFound(c *check.C) {
 	handler.ServeHTTP(recorder, request)
 	c.Assert(recorder.Code, check.Equals, http.StatusNotFound)
 }
+
+func (*S) TestPlansHandler(c *check.C) {
+	config.Plans = []Plan{
+		{Name: "supermemcached", Image: "memcached"},
+		{Name: "hipermemcached", Image: "memcached:powerful"},
+		{Name: "memcached-legacy", Image: "memcached:0.4"},
+	}
+	request, err := http.NewRequest("GET", "/resources/plans", strings.NewReader(""))
+	c.Assert(err, check.IsNil)
+	recorder := httptest.NewRecorder()
+	handler := buildMuxer()
+	handler.ServeHTTP(recorder, request)
+	c.Assert(recorder.Code, check.Equals, http.StatusOK)
+	expected := []map[string]string{
+		{"name": "supermemcached", "description": "Run containers of the image memcached"},
+		{"name": "hipermemcached", "description": "Run containers of the image memcached:powerful"},
+		{"name": "memcached-legacy", "description": "Run containers of the image memcached:0.4"},
+	}
+	var got []map[string]string
+	err = json.NewDecoder(recorder.Body).Decode(&got)
+	c.Assert(err, check.IsNil)
+	c.Assert(got, check.DeepEquals, expected)
+}
