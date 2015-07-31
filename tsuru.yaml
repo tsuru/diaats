@@ -1,0 +1,4 @@
+hooks:
+  build:
+    - go get -d -x
+    - go build -o diaats
