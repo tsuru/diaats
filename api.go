@@ -67,8 +67,13 @@ func bindApp(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	encodedEndpoints, _ := json.Marshal(instance.Endpoints())
+	encodedEnvs, _ := json.Marshal(instance.EnvMap())
 	envVarName := fmt.Sprintf("DIAATS_%s_INSTANCE", strings.ToUpper(instance.Plan.Name))
-	data := map[string]string{envVarName: string(encodedEndpoints)}
+	dockerEnvVarName := fmt.Sprintf("DIAATS_%s_DOCKER_ENVS", strings.ToUpper(instance.Plan.Name))
+	data := map[string]string{
+		envVarName:       string(encodedEndpoints),
+		dockerEnvVarName: string(encodedEnvs),
+	}
 	err = json.NewEncoder(w).Encode(data)
 	if err != nil {
 		log.Printf("ERROR - failed to encode JSON: %s", err)

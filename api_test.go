@@ -194,7 +194,7 @@ func (*S) TestBindAppHandler(c *check.C) {
 	handler.ServeHTTP(recorder, request)
 	c.Log(recorder.Body.String())
 	c.Assert(recorder.Code, check.Equals, http.StatusOK)
-	expected := map[string]string{"DIAATS_SUPERMEMCACHED_INSTANCE": "[]"}
+	expected := map[string]string{"DIAATS_SUPERMEMCACHED_INSTANCE": "[]", "DIAATS_SUPERMEMCACHED_DOCKER_ENVS": "{}"}
 	var result map[string]string
 	err = json.Unmarshal(recorder.Body.Bytes(), &result)
 	c.Assert(err, check.IsNil)

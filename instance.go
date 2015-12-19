@@ -10,6 +10,7 @@ import (
 	"log"
 	"net"
 	"net/url"
+	"strings"
 
 	"github.com/fsouza/go-dockerclient"
 	"gopkg.in/mgo.v2"
@@ -26,6 +27,7 @@ type Instance struct {
 	DockerHost  string
 	ContainerID string
 	HostPorts   []string
+	Envs        []string
 	Plan        Plan
 }
 
@@ -43,6 +45,19 @@ func (i *Instance) Endpoints() []string {
 	result := make([]string, len(i.HostPorts))
 	for i, port := range i.HostPorts {
 		result[i] = host + ":" + port
+	}
+	return result
+}
+
+// EnvMap returns the set of environment variables in the instance. The API
+// gets these environment variables from Docker when creating the instance.
+func (i *Instance) EnvMap() map[string]string {
+	result := make(map[string]string, len(i.Envs))
+	for _, env := range i.Envs {
+		parts := strings.SplitN(env, "=", 2)
+		if len(parts) == 2 {
+			result[parts[0]] = parts[1]
+		}
 	}
 	return result
 }
@@ -90,6 +105,7 @@ func CreateInstance(name string, plan *Plan) error {
 			instance.HostPorts = append(instance.HostPorts, p.HostPort)
 		}
 	}
+	instance.Envs = container.Config.Env
 	err = collection.Insert(instance)
 	if err != nil {
 		client.RemoveContainer(docker.RemoveContainerOptions{ID: container.ID, Force: true})
