@@ -1,6 +1,5 @@
 #diaats
 
-[![Drone](https://drone.io/github.com/tsuru/diaats/status.png)](https://drone.io/github.com/tsuru/diaats/latest)
 [![Build Status](https://travis-ci.org/tsuru/diaats.svg?branch=master)](https://travis-ci.org/tsuru/diaats)
 
 Docker-image-as-a-tsuru-service is a tool for generating a [tsuru service
