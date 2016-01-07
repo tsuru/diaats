@@ -1,0 +1,151 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"path": "github.com/fsouza/go-dockerclient",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/Sirupsen/logrus",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/opts",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/archive",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/fileutils",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/homedir",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/idtools",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/ioutils",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/longpath",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/parsers",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/pools",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/promise",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/stdcopy",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/system",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/ulimit",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/units",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/gorilla/context",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/gorilla/mux",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/hashicorp/go-cleanhttp",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/external/github.com/opencontainers/runc/libcontainer/user",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/fsouza/go-dockerclient/testing",
+			"revision": "83211b6fbbfc6aa4a19eeb76eaf5cbfbe1381004",
+			"revisionTime": "2016-01-03T21:32:40-02:00"
+		},
+		{
+			"path": "github.com/gorilla/context",
+			"revision": "708054d61e5a2918b9f4e9700000ee611dcf03f5",
+			"revisionTime": "2013-05-30T20:21:01-07:00"
+		},
+		{
+			"path": "github.com/gorilla/mux",
+			"revision": "b08c5fcf14d01cb0c20ddf70157f54d4a2c3a38a",
+			"revisionTime": "2013-09-11T13:10:56-07:00"
+		},
+		{
+			"path": "github.com/gorilla/pat",
+			"revision": "ae2e162c4b2ae96aa66b596b2c18f17834299ed0",
+			"revisionTime": "2013-12-04T23:16:17-08:00"
+		},
+		{
+			"path": "gopkg.in/check.v1",
+			"revision": "64131543e7896d5bcc6bd5a76287eb75ea96c673",
+			"revisionTime": "2014-10-24T11:38:53-02:00"
+		},
+		{
+			"path": "gopkg.in/mgo.v2",
+			"revision": "f4923a569136442e900b8cf5c1a706c0a8b0883c",
+			"revisionTime": "2015-08-21T12:30:02-03:00"
+		},
+		{
+			"path": "gopkg.in/mgo.v2/bson",
+			"revision": "f4923a569136442e900b8cf5c1a706c0a8b0883c",
+			"revisionTime": "2015-08-21T12:30:02-03:00"
+		},
+		{
+			"path": "gopkg.in/mgo.v2/internal/sasl",
+			"revision": "f4923a569136442e900b8cf5c1a706c0a8b0883c",
+			"revisionTime": "2015-08-21T12:30:02-03:00"
+		},
+		{
+			"path": "gopkg.in/mgo.v2/internal/scram",
+			"revision": "f4923a569136442e900b8cf5c1a706c0a8b0883c",
+			"revisionTime": "2015-08-21T12:30:02-03:00"
+		}
+	]
+}
