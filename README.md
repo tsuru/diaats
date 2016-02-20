@@ -10,7 +10,7 @@ environment variable. The value of this variable must be a valid JSON. For
 example:
 
 ```
-IMAGE_PLANS='[{"image":"elasticsearch","plan":"elasticsearch"},{"image":"memcached","plan":"memcached"},{"image":"registry.mycompany.com/team/memcached:1.4,"plan":"custom_memcached"}]'
+IMAGE_PLANS='[{"image":"elasticsearch","plan":"elasticsearch","args":["elasticsearch","-Des.node.name=\"TestNode\""},{"image":"memcached","plan":"memcached"},{"image":"registry.mycompany.com/team/memcached:1.4,"plan":"custom_memcached_64mb","args":["-m", "64"]}]'
 ```
 
 Other relevant environment variables include:
