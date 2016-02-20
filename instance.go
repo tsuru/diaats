@@ -79,7 +79,7 @@ func CreateInstance(name string, plan *Plan) error {
 	defer collection.Close()
 	opts := docker.CreateContainerOptions{
 		Name:       fmt.Sprintf("diaats-%s-%s", plan.Name, name),
-		Config:     &docker.Config{Image: plan.Image},
+		Config:     &docker.Config{Cmd: plan.Args, Image: plan.Image},
 		HostConfig: config.HostConfig,
 	}
 	client, err := docker.NewClient(instance.DockerHost)

@@ -45,6 +45,7 @@ func (s *S) TestCreateInstance(c *check.C) {
 	container, err := client.InspectContainer(instance.ContainerID)
 	c.Assert(err, check.IsNil)
 	c.Assert(container.Name, check.Equals, "diaats-supermemcached-mycache")
+	c.Assert(container.Config.Cmd, check.DeepEquals, config.Plans[0].Args)
 }
 
 func (s *S) TestCreateInstanceDuplicate(c *check.C) {
