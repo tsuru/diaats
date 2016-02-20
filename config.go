@@ -26,8 +26,9 @@ var config struct {
 }
 
 type Plan struct {
-	Name  string `json:"plan"`
-	Image string `json:"image"`
+	Name  string   `json:"plan"`
+	Image string   `json:"image"`
+	Args  []string `json:"args"`
 }
 
 func (p *Plan) ToMap() map[string]string {

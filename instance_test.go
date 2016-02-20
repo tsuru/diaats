@@ -29,7 +29,7 @@ func (s *S) TestCreateInstance(c *check.C) {
 	c.Assert(err, check.IsNil)
 	err = client.PullImage(docker.PullImageOptions{Repository: "memcached"}, docker.AuthConfiguration{})
 	c.Assert(err, check.IsNil)
-	config.Plans = []Plan{{Name: "supermemcached", Image: "memcached"}}
+	config.Plans = []Plan{{Name: "supermemcached", Image: "memcached", Args: []string{"-m", "64"}}}
 	err = CreateInstance("mycache", &config.Plans[0])
 	c.Assert(err, check.IsNil)
 	defer DestroyInstance("mycache")
